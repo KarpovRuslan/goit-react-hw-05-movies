@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_05_movies=self.webpackChunkgoit_react_hw_05_movies||[]).push([[247],{1247:function(e,t,a){a.r(t);var i=a(184);t.default=function(){return(0,i.jsx)(i.Fragment,{children:"Hello i am Cast"})}}}]);
+//# sourceMappingURL=247.6b466afc.chunk.js.map
