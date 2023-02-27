@@ -19,7 +19,6 @@ const MovieDetails = () => {
       try {
         const data = await GetMoviesById(movieId);
         setMoviesData(data);
-        //console.log(movies);
       } catch {
         console.log(Error);
       } finally {

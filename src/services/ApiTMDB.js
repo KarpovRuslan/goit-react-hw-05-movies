@@ -18,3 +18,17 @@ export const FindMovies = async query => {
   );
   return resp.data.results;
 };
+
+export const GetMovieCredits = async movieId => {
+  const { data } = await axios.get(
+    `movie/${movieId}/credits?api_key=${API_KEY}`
+  );
+  return data;
+};
+
+export const GetMovieReviews = async movieId => {
+  const { data } = await axios.get(
+    `movie/${movieId}/reviews?api_key=${API_KEY}`
+  );
+  return data;
+};
