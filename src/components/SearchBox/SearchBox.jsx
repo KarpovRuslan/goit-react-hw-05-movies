@@ -1,21 +1,31 @@
-import { Wrapper, Input, Icon } from './SearchBox.styled';
+import { Wrapper, Icon, Input } from './SearchBox.styled';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-export const SearchBox = ({ value, onChange }) => {
+export const SearchBox = ({ onChange }) => {
+  const [movieValue, setMovieValue] = useState('');
+  const handleNameChange = event =>
+    setMovieValue(event.currentTarget.value.toLowerCase());
+  const handleSubmit = event => {
+    event.preventDefault();
+    onChange(movieValue);
+    setMovieValue('');
+  };
   return (
-    <Wrapper>
-      <Icon />
-      <Input
-        type="text"
-        value={value}
-        onChange={e => onChange(e.target.value)}
-        placeholder="search movie by name..."
-      />
-    </Wrapper>
+    <form onSubmit={handleSubmit}>
+      <Wrapper>
+        <Icon />
+        <Input
+          type="text"
+          value={movieValue}
+          onChange={handleNameChange}
+          placeholder="search movie by name..."
+        />
+      </Wrapper>
+    </form>
   );
 };
 
 SearchBox.propTypes = {
-  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

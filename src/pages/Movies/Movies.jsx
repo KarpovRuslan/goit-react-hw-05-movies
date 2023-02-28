@@ -1,11 +1,10 @@
-// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { FindMovies } from 'services/ApiTMDB';
 import { MovieList } from 'components/MovieList/MovieList';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { Loader } from 'components/Loader/Loader';
-import { Spinner } from '../../pages/Home/Home.styled';
+import { Spinner } from './Movies.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState(null);
@@ -42,6 +41,11 @@ const Movies = () => {
         </Spinner>
       )}
       {movies !== null && <MovieList movies={movies} />}
+      {/* {movies === null ? (
+        <div>There is no data for view</div>
+      ) : (
+        <MovieList movies={movies} />
+      )} */}
     </main>
   );
 };

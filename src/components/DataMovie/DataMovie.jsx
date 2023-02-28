@@ -1,6 +1,13 @@
-import { MovieDetailsBlock, MovieDetailsInfo } from './DataMovie.styled';
-import { Outlet, Link } from 'react-router-dom';
+import {
+  MovieDetailsBlock,
+  MovieDetailsInfo,
+  StyledLink,
+  AdditionalButtonBlock,
+} from './DataMovie.styled';
+import { Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Suspense } from 'react';
+import { Loader } from 'components/Loader/Loader';
 
 const DataMovie = ({
   title,
@@ -31,12 +38,12 @@ const DataMovie = ({
       </MovieDetailsBlock>
       <div>
         <h3>Additional information</h3>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
+        <Suspense fallback={<Loader />}>
+          <AdditionalButtonBlock>
+            <StyledLink to="cast">Cast</StyledLink>
+            <StyledLink to="reviews">Reviews</StyledLink>
+          </AdditionalButtonBlock>
+        </Suspense>
       </div>
       <Outlet />
     </>
